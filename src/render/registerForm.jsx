@@ -3,11 +3,11 @@ const RegisterForm = () => {
         <Form action="post">
             <div className="">
                 <label htmlFor="email">Email</label>
-                <input type="email" className="form-input" />
+                <input type="email" className="form-element" />
             </div>
             <div className="">
                 <label htmlFor="password">Password</label>
-                <input type="password" className="form-input" />
+                <input type="password" className="form-element" />
             </div>
         </Form>
     );

@@ -55,7 +55,7 @@ export default function Root() {
                                 name="q"
                                 type="search" 
                                 defaultValue={q}
-                                className="form-input ps-8"
+                                className="form-element ps-8"
                                 aria-label="Search contacts"
                                 placeholder="Search users..."
                                 onChange={(event) => {

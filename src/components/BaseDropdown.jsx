@@ -1,8 +1,15 @@
 import React from 'react';
+import { useClickOutside } from "../utilities/hooks";
 
 const BaseDropdown = ({ title='Choose', options, callback }) => {
+    const clickRef = React.useRef();
     const [name, setName] = React.useState(title);
     const [display, setDisplay] = React.useState(false);
+
+    useClickOutside(clickRef, () => {
+        console.log('Clicked outside');
+        if (display) setDisplay((prev) => !prev);
+    });
 
     const handleSelect = (option) => {
         setDisplay((prev) => !prev);
@@ -28,7 +35,7 @@ const BaseDropdown = ({ title='Choose', options, callback }) => {
     });
 
     return (
-        <div className="dropdown">
+        <div className="dropdown" ref={clickRef}>
             <button
                 type="button"
                 id="dropdownSearchButton"
@@ -51,7 +58,7 @@ const BaseDropdown = ({ title='Choose', options, callback }) => {
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                             </svg>
                         </div>
-                        <input type="text" id="input-group-search" className="form-input ps-8" placeholder="Search user" />
+                        <input type="text" id="input-group-search" className="form-element ps-8" placeholder="Search user" />
                     </div>
                 </div>
                 <ul className="py-2 text-sm text-gray-700" aria-labelledby="dropdownSearchButton">

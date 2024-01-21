@@ -12,7 +12,7 @@ import HomePage from '../pages/HomePage'
 import Projects from '../render/projects'
 import ShowFoods from '../render/all-projects/ShowFoods'
 import TicTacToe from "../render/all-projects/ticTacToe"
-import Todo from "../render/all-projects/todo"
+import Todos from "../render/all-projects/todos"
 
 export const routerExercise = createBrowserRouter([
     {
@@ -80,7 +80,7 @@ export const routerProject = createBrowserRouter([
                             },
                             {
                                 path: "todo-app",
-                                element: <Todo />
+                                element: <Todos />
                             },
                             {
                                 path: "show-foods",

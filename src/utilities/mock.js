@@ -208,4 +208,104 @@ export const projects = [
         path: 'show-foods'
     }
 ];
-  
+
+export const players = {
+    firstPlayer: {
+        type: "string",
+        value: "X",
+        error: [],
+        validate: false,
+        condition: {},
+    },
+    secondPlayer: {
+        type: "string",
+        value: "O",
+        error: [],
+        validate: false,
+        condition: {},
+    }
+};
+
+export const registerForm = {
+    firstName: {
+        type: "string",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true, maxLength: 10 },
+    },
+    lastName: {
+        type: "string",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true, maxLength: 10 },
+    },
+    email: {
+        type: "email",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true },
+    },
+    phone: {
+        type: "number",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true },
+    },
+    password: {
+        type: "string",
+        value: "",
+        error: [],
+        validate: true,
+        condition: {
+            required: true,
+            minLength: 6,
+            maxLength: 10,
+            specialChar: true,
+        },
+    },
+    confirmPassword: {
+        type: "string",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true, match: "password" },
+    },
+};
+
+export const loginForm = {
+    email: {
+        type: "email",
+        value: "",
+        error: [],
+        validate: true,
+        condition: { required: true },
+    },
+    password: {
+        type: "string",
+        value: "",
+        error: [],
+        validate: true,
+        condition: {
+            required: true,
+            minLength: 6,
+            maxLength: 10,
+            specialChar: true,
+        },
+    },
+};
+
+
+export const todos = [
+    {
+        id: 'sajdss87ad6as8d7sad8',
+        title: 'Task 1',
+        description: 'Description 1',
+        status: 'Pending',
+        createdAt: '',
+        updatedAt: ''
+    }
+];

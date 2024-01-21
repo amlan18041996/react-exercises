@@ -19,7 +19,7 @@ export default function EditContact() {
                 <input
                     placeholder="First"
                     aria-label="First name"
-                    className="form-input"
+                    className="form-element"
                     type="text"
                     name="first"
                     defaultValue={contact.first}
@@ -27,7 +27,7 @@ export default function EditContact() {
                 <input
                     placeholder="Last"
                     aria-label="Last name"
-                    className="form-input"
+                    className="form-element"
                     type="text"
                     name="last"
                     defaultValue={contact.last}
@@ -38,7 +38,7 @@ export default function EditContact() {
                 <input
                     type="text"
                     name="twitter"
-                    className="form-input"
+                    className="form-element"
                     placeholder="@jack"
                     defaultValue={contact.twitter}
                 />
@@ -48,7 +48,7 @@ export default function EditContact() {
                 <input
                     placeholder="https://example.com/avatar.jpg"
                     aria-label="Avatar URL"
-                    className="form-input"
+                    className="form-element"
                     type="text"
                     name="avatar"
                     defaultValue={contact.avatar}
@@ -58,7 +58,7 @@ export default function EditContact() {
                 <span>Notes</span>
                 <textarea
                     name="notes"
-                    className="form-input"
+                    className="form-element"
                     defaultValue={contact.notes}
                     rows={6}
                 />
