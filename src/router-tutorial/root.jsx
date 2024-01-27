@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation, useSubmit } from "react-router-dom";
-import { getContacts, createContact } from "./contacts";
 import { useEffect } from "react";
+import { createContact, getContacts } from "../utilities/actions-loaders";
 
 export async function action() {
     const contact = await createContact();

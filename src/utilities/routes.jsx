@@ -10,9 +10,10 @@ import Contact, { loader as contactLoader, action as contactAction } from '../ro
 import Home from '../render/home'
 import HomePage from '../pages/HomePage'
 import Projects from '../render/projects'
+import Todos, { loader as todoLoader, action as todoAction } from '../render/all-projects/Todos'
 import ShowFoods from '../render/all-projects/ShowFoods'
-import TicTacToe from "../render/all-projects/ticTacToe"
-import Todos from "../render/all-projects/todos"
+import TicTacToe from '../render/all-projects/TicTacToe'
+import Stopwatch from "../render/all-projects/Stopwatch"
 
 export const routerExercise = createBrowserRouter([
     {
@@ -80,7 +81,13 @@ export const routerProject = createBrowserRouter([
                             },
                             {
                                 path: "todo-app",
-                                element: <Todos />
+                                element: <Todos />,
+                                loader: todoLoader,
+                                action: todoAction,
+                            },
+                            {
+                                path: "stopwatch",
+                                element: <Stopwatch />
                             },
                             {
                                 path: "show-foods",

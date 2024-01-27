@@ -44,6 +44,9 @@
   .btn-danger {
     @apply bg-rose-400 hover:bg-rose-500 text-white font-semibold border-b-4 active:border-b-0 border-rose-600 hover:border-rose-700;
   }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
   .form-element {
     @apply w-full block px-2 py-1 text-gray-600 font-normal bg-gray-50 rounded shadow-sm 
         tracking-wide border border-solid border-gray-300 transition duration-300 

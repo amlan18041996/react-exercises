@@ -199,8 +199,13 @@ export const projects = [
     },
     {
         title: 'Todo-App',
-        description: 'Basic Todo application with CRUD functionality',
+        description: 'Basic Task list application with create-read-update-delete-search-bookmark functionality',
         path: 'todo-app'
+    },
+    {
+        title: 'Stopwatch',
+        description: 'A watch which can be started/stopped in order to measure exactly how long something takes',
+        path: 'stopwatch'
     },
     {
         title: 'show-foods',
@@ -298,14 +303,46 @@ export const loginForm = {
     },
 };
 
-
-export const todos = [
-    {
-        id: 'sajdss87ad6as8d7sad8',
-        title: 'Task 1',
-        description: 'Description 1',
-        status: 'Pending',
-        createdAt: '',
-        updatedAt: ''
-    }
+export const todoStatuses = [
+    {name: 'In Progress', value: 'in-progress'},
+    {name: 'Pending', value: 'pending'},
+    {name: 'Completed', value: 'completed'},
+    {name: 'Not Started', value: 'not-started'},
+    {name: 'On Hold', value: 'on-hold'},
+    {name: 'Cancelled', value: 'cancelled'},
+    {name: 'Yet to Plan', value: 'yet-to-plan'},
 ];
+
+export const todoForm = {
+    title: {
+        type: "string",
+        value: "",
+        error: {},
+        validate: true,
+        condition: { required: true, minLength: 5 },
+    },
+    description: {
+        type: "string",
+        value: "",
+        error: {},
+        validate: true,
+        condition: { required: true, minLength: 10, maxLength: 200 },
+    },
+    status: {
+        type: "string",
+        value: "",
+        error: {},
+        validate: true,
+        condition: { required: true, minLength: 5, maxLength: 15 },
+    }
+};
+
+export const TodoActions = {
+    CREATE_TODO: "CREATE_TODO",
+    VIEW_TODO: "VIEW_TODO",
+    UPDATE_TODO: "UPDATE_TODO",
+    DELETE_TODO: "DELETE_TODO",
+    BOOKMARK_TODO: "BOOKMARK_TODO",
+    RESET_THREAD: "RESET_THREAD",
+    RESET_TODOS: "RESET_TODOS",
+}
