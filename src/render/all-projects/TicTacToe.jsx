@@ -25,43 +25,62 @@ function calculateWinner(squares) {
 
 const Square = ({value, onClick, winner}) => {
     if (!value) {
-        return <button className="w-24 h-24 text-lg text-violet-600 border border-black rounded" onClick={onClick} disabled={Boolean(winner)} />;
+        return <button className="h-16 text-lg text-violet-600 border border-black rounded" onClick={onClick} disabled={Boolean(winner)} />;
     }
     return (
-        <button className={`w-24 h-24 text-lg text-violet-600 border border-black rounded ${value.toLocaleLowerCase()}`} disabled>
+        <button className={`h-16 text-lg text-violet-600 border border-black rounded ${value.toLocaleLowerCase()}`} disabled>
             {value}
         </button>
     )
 }
 
-const TicTacToe = () => {
+const Board = ({ firstPlayer, secondPlayer }) => {
     const [winner, setWinner] = React.useState(null);
     const [squares, setSquares] = React.useState(Array(9).fill(null));
-    const [playerName, dispatchPlayerName] = React.useReducer(playerReducer, initialPlayers);
-    const [currentPlayer, setCurrentPlayer] = React.useState(Math.round(Math.random() * 1) === 1 ? "X" : "O");
+    const [activePlayer, setActivePlayer] = React.useState(Math.round(Math.random() * 1) === 1 ? firstPlayer : secondPlayer);
 
-    const { firstPlayer, secondPlayer } = playerName;
-
-    function reset() {
-        setWinner(null);
-        setSquares(Array(9).fill(null));
-        setCurrentPlayer(Math.round(Math.random() * 1) === 1 ? "X" : "O");
-    }
-    
-    function setSquareValue(index) {
-        const newData = squares.map((val, i) => {
-            if (i === index) return currentPlayer;
-            return val;
-        });
-        setSquares(newData);
-        setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
-    }
-    
     React.useEffect(() => {
         const result = calculateWinner(squares);
         if (result) setWinner(result);
         if (!result && !squares.filter((square) => !square).length) setWinner("BOTH");
     });
+
+    function setSquareValue(index) {
+        const newData = squares.map((val, i) => {
+            if (i === index) return activePlayer;
+            return val;
+        });
+        setSquares(newData);
+        setActivePlayer(activePlayer === firstPlayer ? secondPlayer : firstPlayer);
+    }
+    return (
+        <div className="flex flex-row gap-5">
+            <div className="">
+                <h2 className="text-base">
+                    {!winner && <p className="text-xl text-slate-600 mb-3">It's your turn: <span className="font-medium font-serif text-blue-500">{activePlayer}</span></p>}
+                    {winner && winner !== "BOTH" && <p>Congratulations {winner}</p>}
+                    {winner && winner === "BOTH" && <p>It's a tie for both of you</p>}
+                </h2>
+                <div className="w-52 grid grid-cols-3 gap-2 justify-center">
+                    {Array(9).fill(null).map((_, i) => <Square winner={winner} key={i} onClick={() => setSquareValue(i)} value={squares[i]} />)}
+                </div>
+            </div>
+            <div className="history">
+                Who Wins first round
+            </div>
+        </div>
+    );
+}
+
+const TicTacToe = () => {
+    // https://dummyimage.com/400x400/ffffff/0011ff&text=AS
+    const [initiate, setInitiate] = React.useState(false);
+    const [playerName, dispatchPlayerName] = React.useReducer(playerReducer, initialPlayers);
+    const { firstPlayer, secondPlayer, gameMode } = playerName;
+
+    function reset() {
+        setInitiate(false);
+    }
 
     function handleElementChange(event) {
         const { name, value } = event.target;
@@ -69,31 +88,45 @@ const TicTacToe = () => {
     }
     
     return (
-        <div className="grid grid-cols-2 gap-x-4 gap-y-5">
-            <div className="w-80 space-y-3">
-                <div className="flex gap-3">
-                    <BaseInput
-                        id="first-player"
-                        name="firstPlayer"
-                        classes="form-element"
-                        value={firstPlayer.value}
-                        onChange={handleElementChange}
-                    />
-                    <BaseInput
-                        id="second-player"
-                        name="secondPlayer"
-                        classes="form-element"
-                        value={secondPlayer.value}
-                        onChange={handleElementChange}
-                    />
+        <div className="md:w-3/4 lg:w-2/4 px-4 py-6 mx-auto space-y-4 bg-stone-50 shadow rounded">
+            <h2 className="text-4xl text-cyan-500 text-center underline decoration-wavy underline-offset-2 mb-6">Tic Tac Toe</h2>
+            <div className="lg:w-1/2 space-y-3 border rounded-md p-2">
+                <div className="flex flex-col gap-3">
+                    <div className="">
+                        <label htmlFor="first-player" className="text-base text-gray-500 tracking-wide font-medium">First Player</label>
+                        <input
+                            id="first-player"
+                            name="firstPlayer"
+                            className="form-element"
+                            value={firstPlayer.value}
+                            onChange={handleElementChange}
+                        />
+                    </div>
+                    <div className="">
+                        <label htmlFor="second-player" className="text-base text-gray-500 tracking-wide font-medium">Second Player</label>
+                        <input
+                            id="second-player"
+                            name="secondPlayer"
+                            className="form-element"
+                            value={secondPlayer.value}
+                            onChange={handleElementChange}
+                        />
+                    </div>
+                    <div className="">
+                        <p className="text-base text-gray-500 tracking-wide font-medium">Choose Mode:</p>
+                        <div className="relative flex flex-row items-center justify-center flex-wrap">
+                            <input className="absolute invisible peer/todo" type="checkbox" id="three*three" value="three*three" checked={gameMode === 'three*three'} onChange={handleElementChange} />
+                            <label htmlFor="three*three" className="w-full flex items-center justify-between select-none cursor-pointer px-3 py-4 overflow-hidden hover:bg-neutral-100 peer-checked/todo:bg-neutral-200 rounded-md shadow tranisition">3*3</label>
+                        </div>
+                        <div className="relative flex flex-row items-center justify-center flex-wrap">
+                            <input className="absolute invisible peer/todo" type="checkbox" id="five*five" value="five*five" checked={gameMode === 'five*five'} onChange={handleElementChange} />
+                            <label htmlFor="five*five" className="w-full flex items-center justify-between select-none cursor-pointer px-3 py-4 overflow-hidden hover:bg-neutral-100 peer-checked/todo:bg-neutral-200 rounded-md shadow tranisition">5*5</label>
+                        </div>
+                    </div>
                 </div>
-                {!winner && <p>Hey {currentPlayer}, it's your turn</p>}
-                {winner && winner !== "BOTH" && <p>Congratulations {winner}</p>}
-                {winner && winner === "BOTH" && (
-                    <p>Congratulations you're both winners</p>
-                )}
+                
                 <div className="flex gap-3">
-                    <button className="btn btn-primary" onClick={reset}>
+                    <button className="btn btn-primary" onClick={() => setInitiate(true)}>
                         START
                     </button>
                     <button className="btn btn-warning" onClick={reset}>
@@ -101,22 +134,7 @@ const TicTacToe = () => {
                     </button>
                 </div>
             </div>
-            <div className="w-80 grid grid-cols-3 gap-2 justify-center">
-                    {
-                        Array(9)
-                        .fill(null)
-                        .map((_, i) => {
-                            return (
-                                <Square
-                                    winner={winner}
-                                    key={i}
-                                    onClick={() => setSquareValue(i)}
-                                    value={squares[i]}
-                                />
-                            );
-                        })
-                    }
-            </div>
+            {initiate && <Board firstPlayer={firstPlayer.value} secondPlayer={secondPlayer.value} />}
         </div>
     );
 }

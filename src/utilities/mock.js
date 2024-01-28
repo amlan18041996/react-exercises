@@ -228,6 +228,13 @@ export const players = {
         error: [],
         validate: false,
         condition: {},
+    },
+    gameMode: {
+        type: "string",
+        value: "three*three",
+        error: [],
+        validate: false,
+        condition: {},
     }
 };
 
@@ -304,13 +311,13 @@ export const loginForm = {
 };
 
 export const todoStatuses = [
-    {name: 'In Progress', value: 'in-progress'},
-    {name: 'Pending', value: 'pending'},
-    {name: 'Completed', value: 'completed'},
-    {name: 'Not Started', value: 'not-started'},
-    {name: 'On Hold', value: 'on-hold'},
-    {name: 'Cancelled', value: 'cancelled'},
-    {name: 'Yet to Plan', value: 'yet-to-plan'},
+    { name: 'In Progress', value: 'in-progress' },
+    { name: 'Pending', value: 'pending' },
+    { name: 'Completed', value: 'completed' },
+    { name: 'Not Started', value: 'not-started' },
+    { name: 'On Hold', value: 'on-hold' },
+    { name: 'Cancelled', value: 'cancelled' },
+    { name: 'Yet to Plan', value: 'yet-to-plan' },
 ];
 
 export const todoForm = {
