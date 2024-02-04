@@ -198,7 +198,7 @@ export const projects = [
         path: 'tic-tac-toe'
     },
     {
-        title: 'Todo-App',
+        title: 'Todo App',
         description: 'Basic Task list application with create-read-update-delete-search-bookmark functionality',
         path: 'todo-app'
     },
@@ -208,7 +208,7 @@ export const projects = [
         path: 'stopwatch'
     },
     {
-        title: 'show-foods',
+        title: 'Show Foods',
         description: 'Show foods along with their categories and recipes',
         path: 'show-foods'
     }
