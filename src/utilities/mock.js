@@ -352,4 +352,74 @@ export const TodoActions = {
     BOOKMARK_TODO: "BOOKMARK_TODO",
     RESET_THREAD: "RESET_THREAD",
     RESET_TODOS: "RESET_TODOS",
-}
+};
+
+export const workExp = [
+    {
+        name: 'UG INFO Systems',
+        duration: 'Jul 2017 — Mar 2021',
+        designation: 'Full Stack Developer',
+        description: [
+            'Created an extension for social media platform for WhatsApp and WeChat with the objective of capturing and monitoring messages between Relationship-Managers & their appointed clients to enhance the client experience.',
+            'Created a chat application as Bespoke with including features like,\n Integrated WeChat & WhatsApp( via Twilio ) & Line API`s onto the chat where clients can message with their day-day social chat platforms as well.,\n Integrated Socket.io to transmit & receive runtime messages.,\n Integrated a custom AI bot to resolve some basic queries of clients with the help of Botman, DialogFlow.',
+            'User management application with multiple roles like Managers, Clients, Relationship Managers, Admin, Developer with specific authorized features ( Built on top of Angular 2 ).',
+            'Responsible for building the architecture & user-interface for creating the flow for the interaction between coaches/trainees & their appointed pupils. Payment Integration system like Stripe & video sharing/capturing features like Zoom were used in this platform.',
+            'Webcrawling extension with the objective of capturing certain text or images or videos and exporting it as PDF/DOC using python with Core JS.'
+        ]
+    },
+    {
+        name: 'TIC Retail Accessories India Pvt Ltd',
+        designation: 'Software Engineer',
+        duration: 'Apr 2021 — Sep 2022',
+        description: [
+            'Made `Customer Portal` frontend for users who can check their product status for Repair or Replace case [ Built on React JS ] along with handling multiple cases such as Authentication, Authorization, 2 Factor Authentication using either email or sms. Participated in creating some of the microservices using symfony.',
+            'Responsible for Field-Component Design module where CX team can create and manage their components directly from the UI. It`s UI was built on top of React JS but for Core JS was utilized for the Drag & Drop functionality',
+            'Migrating a antiquated project built on ( Symfony & Angular ) to ( Lumen & React JS )'
+        ]
+    },
+    {
+        name: ' GSPANN',
+        duration: 'Oct 2022 — Present',
+        designation: 'Senior Software Engineer',
+        description: [
+            'Created the whole architectural flow of frontend based on Vue JS, VueUse & Pinia',
+            'Responsible for creating user-management-profile page',
+            'Responsible for creating checkout flow',
+            'Responsible for creating home-page',
+            'Dialog level design with multiple options for creating and designing the component on AEM 6.5',
+            'Developed own custom libraries such as data-table, carousel, toast',
+            'Building AEM Franklin`s multi level blocks & templates for the UI differentiated among multi opcos/brands'
+        ]
+    },
+];
+
+export const testimonials = [
+    {
+        name: 'Michael - Technical Manager',
+        designation: 'Marketing @ APPLE INC.',
+        comments: 'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
+        rating: 3.5,
+        date: 'September 5, 2022'
+    },
+    {
+        name: 'Morty - Engagement Manager',
+        designation: 'Sales @ INTEL INC.',
+        comments: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+        rating: 3,
+        date: 'April 17, 2021'
+    },
+    {
+        name: 'Jerry - Manager',
+        designation: 'Finance @ SPLASH INC.',
+        comments: 'It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source',
+        rating: 5,
+        date: 'March 7, 2021'
+    },
+    {
+        name: 'Rick - Delivery Manager',
+        designation: 'Marketing @ APPLE INC.',
+        comments: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don`t look even slightly believable.',
+        rating: 2,
+        date: 'October 21, 2020'
+    }
+];

@@ -9,7 +9,7 @@ const Intro = () => {
       ref={introRef}
       className="container mx-auto flex flex-col lg:flex-row gap-4 px-4 md:px-0 sm:mb-0 scroll-mt-[100rem] mt-20"
     >
-      <div className="flex flex-col gap-4 col-auto lg:col-span-2 basis-2/3">
+      <div className="flex flex-col gap-4 col-auto basis-2/3">
         <h1 className="my-4 font-medium">
           <p className="text-5xl">
             Hello, I'm <span className="font-bold tracking-wider">Amlan.</span>
