@@ -19,9 +19,11 @@ import Todos, {
 import ShowFoods from "../render/all-projects/ShowFoods";
 import TicTacToe from "../render/all-projects/TicTacToe";
 import Stopwatch from "../render/all-projects/Stopwatch";
+
 import Base from "../pages/Base";
 import Home from "../pages/scrapbook/Home";
 import About from "../pages/scrapbook/About";
+import Articles from "../pages/scrapbook/Articles";
 import Projects from "../pages/scrapbook/Projects";
 
 export const routerExercise = createBrowserRouter([
@@ -103,9 +105,9 @@ export const routerPortfolio = createBrowserRouter([
             ],
           },
           {
-            path: "contact",
+            path: "articles",
             action: destroyAction,
-            element: "Contact",
+            element: <Articles />,
             errorElement: "Oops! There was an error.",
           },
         ],

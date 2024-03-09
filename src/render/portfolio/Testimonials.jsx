@@ -1,82 +1,62 @@
 import React from "react";
+import Ratings from "../../components/Ratings";
 import { testimonials } from "../../utilities/mock";
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col gap-y-6 divide-y divide-dashed">
-      {testimonials.map((monials, monIndex) => {
-        return (
-          <article
-            className="group relative flex flex-col items-start pt-6"
-            key={monIndex}
-          >
-            <div className="relative flex flex-row items-center gap-x-4">
-              <picture>
-                <img
-                  src="https://picsum.photos/200"
-                  alt="Client Name"
-                  className="w-14 h-14 rounded"
-                />
-              </picture>
-              <div>
-                <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-blue-gray-900 mb-0.5">
-                  {monials.name}
-                </h6>
-                <p className="block antialiased font-sans text-sm leading-normal text-inherit font-normal mb-5 !text-gray-500">
-                  {monials.designation}
-                </p>
+    <div className="flex flex-col">
+      <h3 className="flex gap-x-3 text-2xl font-medium text-zinc-500 underline underline-offset-2 dark:text-zinc-300">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="size-8 fill-current text-gray-500"
+          viewBox="0 0 16 16"
+        >
+          <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+        </svg>
+        Let's see what my clients say
+      </h3>
+      <div className="flex flex-col gap-y-6 divide-y divide-dashed">
+        {testimonials.map((monials, monIndex) => {
+          return (
+            <article
+              className="relative flex flex-col items-start pt-6"
+              key={monIndex}
+            >
+              <div className="w-full relative flex flex-row items-center gap-x-4">
+                <picture className="hidden md:block shrink-0">
+                  <img
+                    src="https://picsum.photos/200"
+                    alt="Client Name"
+                    className="w-14 h-14 rounded"
+                  />
+                </picture>
+                <div className="w-full">
+                  <div className="flex flex-row items-center self-baseline divide-x">
+                    <h6 className="pr-2 subpixel-antialiased tracking-normal font-sans text-lg font-semibold leading-relaxed text-slate-900/80 dark:text-slate-300/80">
+                      {monials.name}
+                    </h6>
+                    <p className="pl-2 font-sans text-sm leading-normal text-inherit font-normal text-slate-800/80 dark:text-slate-400/80">
+                      {monials.designation}
+                    </p>
+                  </div>
+                  <div className="relative w-full flex flex-row justify-between mt-1.5">
+                    <Ratings score={monials.rating} />
+                    <time
+                      className="relative z-10 flex items-center text-sm text-zinc-400 dark:text-zinc-500"
+                      dateTime="2022-09-05"
+                    >
+                      {monials.date}
+                    </time>
+                  </div>
+                </div>
               </div>
-            </div>
-            <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-              {monials.comments}
-            </p>
-            <div className="relative w-full flex flex-row justify-between mt-2.5">
-              <div className="ratings flex text-yellow-400 space-x-1">
-                {Array(5)
-                  .fill(null)
-                  .map((u, i) => {
-                    return (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        key={i}
-                      >
-                        {monials.rating >= i + 1 ? (
-                          <path
-                            className="bi bi-star-fill"
-                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                          />
-                        ) : Number(monials.rating) === monials.rating &&
-                          monials.rating % 1 !== 0 &&
-                          i < monials.rating ? (
-                          <path
-                            className="bi bi-star-half"
-                            d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"
-                          />
-                        ) : (
-                          <path
-                            className="bi bi-star"
-                            d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"
-                          />
-                        )}
-                      </svg>
-                    );
-                    return null;
-                  })}
-              </div>
-              <time
-                className="relative z-10 flex items-center text-sm text-zinc-400 dark:text-zinc-500"
-                dateTime="2022-09-05"
-              >
-                {monials.date}
-              </time>
-            </div>
-          </article>
-        );
-      })}
+              <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                {monials.comments}
+              </p>
+            </article>
+          );
+        })}
+      </div>
     </div>
   );
 };

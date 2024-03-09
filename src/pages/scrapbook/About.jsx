@@ -102,14 +102,14 @@ const About = () => {
             return (
               <li className="flex" key={socialIndex}>
                 <a
-                  className="group flex items-center text-sm font-medium text-zinc-800"
+                  className="flex items-center text-sm font-medium text-zinc-500 dark:text-zinc-300 hover:text-teal-500 dark:hover:text-teal-300"
                   href={social.path}
                   target="_blank"
                 >
                   <svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
-                    className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
+                    className="h-6 w-6 flex-none fill-current transition"
                   >
                     {social.icon}
                   </svg>

@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import BaseModal from "../components/BaseModal";
+import Ratings from "../components/Ratings";
+import Switch from "../components/Switch";
 
 const NavigationMenu = () => {
+  const settings = React.useRef(null);
   const menus = [
     {
       path: "/",
@@ -30,8 +34,8 @@ const NavigationMenu = () => {
       ),
     },
     {
-      path: "contact",
-      name: "Contact",
+      path: "articles",
+      name: "articles",
       icon: (
         <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5" />
       ),
@@ -48,7 +52,7 @@ const NavigationMenu = () => {
     },
   ];
   return (
-    <nav className="w-full fixed bottom-2 md:bottom-3 lg:bottom-5 z-30 bg-transparent border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+    <nav className="w-fit fixed bottom-2 left-0 right-0 mx-auto md:bottom-3 lg:bottom-5 z-30 bg-transparent border-gray-200 dark:bg-gray-700 dark:border-gray-600">
       <ul className="relative w-full md:w-max flex justify-around items-center mx-auto gap-x-8 bg-violet-200 px-6 rounded-md shadow">
         {menus.map((menu, menuIndex) => {
           return (
@@ -81,8 +85,9 @@ const NavigationMenu = () => {
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="relative w-8 h-8 fill-current block text-center leading-5 m-1 transition animate-[spin_3000ms_linear_infinite] group-hover:animate-[spin_0ms_linear_infinite]"
+                    className="relative w-7 h-7 fill-current block text-center leading-5 m-1 transition animate-[spin_3000ms_linear_infinite] group-hover:animate-[spin_0ms_linear_infinite]"
                     viewBox="0 0 16 16"
+                    onClick={() => settings.current.open()}
                   >
                     {menu.icon}
                   </svg>
@@ -95,6 +100,37 @@ const NavigationMenu = () => {
           );
         })}
       </ul>
+      <BaseModal
+        ref={settings}
+        unMountCallback={() => console.log("Settings modal unmounted")}
+      >
+        <h1 className="text-3xl text-slate-600 font-semibold tracking-wider capitalize underline underline-offset-2 mb-4">
+          Settings
+        </h1>
+        <div className="text-left space-y-4">
+          <div className="flex justify-between items-center">
+            <h4 className="text-xl font-medium tracking-tight">Choose Theme</h4>
+            <Switch
+              callback={() => document.documentElement.classList.toggle("dark")}
+            />
+          </div>
+
+          <div className="flex flex-col gap-y-2">
+            <h4 className="text-xl font-medium tracking-tight">Any Feedback</h4>
+            <textarea
+              name="feedback"
+              id="feedback"
+              className="form-element"
+              cols="20"
+              rows="5"
+            ></textarea>
+            <div className="flex justify-between items-center">
+              <Ratings length={5} score={1} mode="dynamic" size="size-5" />
+              <button className="btn warning">Send</button>
+            </div>
+          </div>
+        </div>
+      </BaseModal>
     </nav>
   );
 };

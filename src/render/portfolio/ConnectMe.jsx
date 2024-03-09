@@ -3,8 +3,8 @@ import { Form } from "react-router-dom";
 
 const ConnectMe = () => {
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/20">
-      <h4 className="flex gap-x-3 text-lg font-medium mb-3">
+    <div className="rounded-2xl p-6 border border-zinc-100 dark:border-zinc-50/20">
+      <h4 className="flex gap-x-3 text-lg font-medium mb-1 text-zinc-500 dark:text-zinc-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -18,7 +18,7 @@ const ConnectMe = () => {
         </svg>
         Have a project in mind?
       </h4>
-      <p className="text-sm text-slate-600/70 font-medium tracking-wide leading-5 subpixel-antialiased">
+      <p className="text-sm text-slate-600/70 dark:text-slate-300/70 font-medium tracking-wide leading-4 subpixel-antialiased mb-4">
         Let's discuss to know the details and how I can help you to achieve your
         goals
       </p>
@@ -56,7 +56,7 @@ const ConnectMe = () => {
           required
           maxLength={5000}
         />
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn primary">
           Let's Connect
         </button>
       </Form>

@@ -194,23 +194,39 @@ export const foods = [
 export const projects = [
     {
         title: 'Tic-Tac-Toe',
+        image: 'https://picsum.photos/200/300',
         description: 'Basic zero-cross game',
-        path: 'tic-tac-toe'
+        path: 'tic-tac-toe',
+        link: {
+            'github.com': 'https://github.com/amlan18041996'
+        }
     },
     {
         title: 'Todo App',
+        image: 'https://picsum.photos/200/300',
         description: 'Basic Task list application with create-read-update-delete-search-bookmark functionality',
-        path: 'todo-app'
+        path: 'todo-app',
+        link: {
+            'github.com': 'https://github.com/amlan18041996'
+        }
     },
     {
         title: 'Stopwatch',
+        image: 'https://picsum.photos/200/300',
         description: 'A watch which can be started/stopped in order to measure exactly how long something takes',
-        path: 'stopwatch'
+        path: 'stopwatch',
+        link: {
+            'github.com': 'https://github.com/amlan18041996'
+        }
     },
     {
         title: 'Show Foods',
+        image: 'https://picsum.photos/200/300',
         description: 'Show foods along with their categories and recipes',
-        path: 'show-foods'
+        path: 'show-foods',
+        link: {
+            'github.com': 'https://github.com/amlan18041996'
+        }
     }
 ];
 
@@ -422,4 +438,109 @@ export const testimonials = [
         rating: 2,
         date: 'October 21, 2020'
     }
+];
+
+export const articles = [
+    {
+        title: 'Crafting a design system for a multiplanetary future',
+        commentCounts: 6,
+        description: 'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
+        rating: 3.5,
+        date: 'September 5, 2022',
+        url: 'https://google.com'
+    },
+    {
+        title: 'Introducing Animaginary: High performance web animations',
+        commentCounts: 2,
+        description: 'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.',
+        rating: 3,
+        date: 'September 2, 2022',
+        url: 'https://facebook.com'
+    },
+    {
+        title: 'Rewriting the cosmOS kernel in Rust',
+        commentCounts: 16,
+        description: 'When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language, but it’s been a while since I’ve seen an article on the front page of Hacker News about rewriting some important tool in Go and I see articles on there about rewriting things in Rust every single week.',
+        rating: 4,
+        date: 'July 14, 2022',
+        url: 'https://google.com'
+    },
+    {
+        title: 'In a free hour, when our power of choice is untrammelled',
+        commentCounts: 42,
+        description: 'A Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature',
+        rating: 4.5,
+        date: 'June 8, 2022',
+        url: 'https://orkut.com'
+    },
+    {
+        title: 'Et harum quidem rerum facilis est et expedita distinctio',
+        commentCounts: 2,
+        description: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus',
+        rating: 5,
+        date: 'August 22, 2022',
+        url: 'https://gmail.com'
+    },
+    {
+        title: 'Occasionally circumstances occur in which toil',
+        commentCounts: 10,
+        description: 'To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences',
+        rating: 3.5,
+        date: 'November 3, 2022',
+        url: 'https://linkedIn.com'
+    },
+];
+
+export const popularArticles = [
+    {
+        title: 'Rewriting the cosmOS kernel in Rust',
+        commentCounts: 16,
+        description: 'When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language, but it’s been a while since I’ve seen an article on the front page of Hacker News about rewriting some important tool in Go and I see articles on there about rewriting things in Rust every single week.',
+        rating: 4,
+        date: 'July 14, 2022',
+        url: 'https://google.com'
+    },
+    {
+        title: 'Occasionally circumstances occur in which toil',
+        commentCounts: 10,
+        description: 'To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences',
+        rating: 3.5,
+        date: 'November 3, 2022',
+        url: 'https://linkedIn.com'
+    },
+    {
+        title: 'Introducing Animaginary: High performance web animations',
+        commentCounts: 2,
+        description: 'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.',
+        rating: 3,
+        date: 'September 2, 2022',
+        url: 'https://facebook.com'
+    },
+];
+
+export const recentArticles = [
+    {
+        title: 'Rewriting the cosmOS kernel in Rust',
+        commentCounts: 16,
+        description: 'When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language, but it’s been a while since I’ve seen an article on the front page of Hacker News about rewriting some important tool in Go and I see articles on there about rewriting things in Rust every single week.',
+        rating: 4,
+        date: 'July 14, 2022',
+        url: 'https://google.com'
+    },
+    {
+        title: 'Occasionally circumstances occur in which toil',
+        commentCounts: 10,
+        description: 'To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences',
+        rating: 3.5,
+        date: 'November 3, 2022',
+        url: 'https://linkedIn.com'
+    },
+    {
+        title: 'Introducing Animaginary: High performance web animations',
+        commentCounts: 2,
+        description: 'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.',
+        rating: 3,
+        date: 'September 2, 2022',
+        url: 'https://facebook.com'
+    },
 ];

@@ -26,7 +26,7 @@ const Projects = () => {
                 {project.description}
               </p>
             </div>
-            <button className="btn btn-primary mt-auto">
+            <button className="btn primary mt-auto">
               Read more
               <svg
                 className="w-3.5 h-3.5 ms-2 transition group-hover:translate-x-0.5"
